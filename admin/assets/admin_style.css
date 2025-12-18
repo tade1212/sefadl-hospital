@@ -1,0 +1,554 @@
+/* ==========================================================================
+   Admin Panel Stylesheet (Final Version)
+   - Organized by Component -
+   ========================================================================== */
+
+/* -------------------------------------------------------------------------- */
+/* 0. ROOT VARIABLES & GLOBAL STYLES
+/* -------------------------------------------------------------------------- */
+:root {
+    --primary-blue-teal: #00A0B0;
+    --primary-magenta: #D83C8E;
+    --neutral-dark: #231F20;
+    --neutral-light: #f4f4f4;
+    --white: #FFFFFF;
+    --border-color: #e9e9e9;
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Lato', sans-serif;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--neutral-light);
+    margin: 0;
+    padding: 0;
+}
+
+/* -------------------------------------------------------------------------- */
+/* 1. LOGIN PAGE
+/* -------------------------------------------------------------------------- */
+body.login-page .mobile-menu-btn {
+    display: none;
+}
+.login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 40px;
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+    text-align: center;
+}
+.login-logo {
+    height: 60px;
+    margin-bottom: 20px;
+}
+.login-container h2 {
+    font-family: var(--font-heading);
+    margin-bottom: 25px;
+    color: var(--neutral-dark);
+}
+.login-container .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+.login-container .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+.login-container input[type="text"],
+.login-container input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+.btn-login {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    background-color: var(--primary-blue-teal);
+    color: var(--white);
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+.login-container .alert-danger {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    text-align: center;
+}
+.password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* -------------------------------------------------------------------------- */
+/* 2. MAIN ADMIN LAYOUT (Sidebar, Header, Content Area)
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/* 2. MAIN ADMIN LAYOUT (Sidebar, Header, Content Area) - SCROLL FIXED
+/* -------------------------------------------------------------------------- */
+.admin-wrapper {
+    display: flex;
+}
+
+/* --- Sidebar --- */
+.sidebar {
+    width: 250px;
+    background-color: var(--neutral-dark);
+    color: var(--white);
+    height: 100vh; /* Full viewport height */
+    position: fixed; /* THIS IS THE KEY: Fixes the sidebar to the viewport */
+    top: 0;
+    left: 0;
+    z-index: 100; /* Ensure it's on a high layer */
+    flex-shrink: 0;
+}
+.sidebar-header {
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid #444;
+}
+.sidebar-logo {
+    height: 50px;
+    margin-bottom: 10px;
+}
+.sidebar-header h3 {
+    margin: 0;
+    font-family: var(--font-heading);
+}
+.sidebar-header h3 a {
+    color: var(--white);
+    text-decoration: none;
+}
+.sidebar-nav {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+.sidebar-nav .nav-item a {
+    display: block;
+    padding: 15px 20px;
+    color: #ccc;
+    text-decoration: none;
+}
+.sidebar-nav .nav-item a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--white);
+}
+.sidebar-nav .nav-item a i {
+    margin-right: 15px;
+    width: 20px;
+}
+
+/* --- Main Content Area --- */
+.mobile-menu-btn {
+    display: none;
+}
+.main-content {
+    margin-left: 250px; /* Create space for the fixed sidebar */
+    width: calc(100% - 250px);
+    position: relative; /* Establish a positioning context */
+    display: flex;
+    flex-direction: column;
+}
+.top-header {
+    background-color: var(--white);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    flex-shrink: 0;
+    /* This header will scroll with the content, as per our last refinement */
+}
+.welcome-message {
+    font-size: 1.1rem;
+}
+.logout-btn {
+    text-decoration: none;
+    font-weight: 700;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    background: orange;
+    color: white;
+    border: 2px solid red;
+}
+.logout-btn:hover {
+    background-color: var(--neutral-dark);
+    border-color: black;
+}
+.content-area {
+    padding: 30px;
+    flex-grow: 1;
+    overflow-y: auto; /* Makes THIS area, and only this area, scroll */
+}
+
+/* --- Header Buttons --- */
+.header-buttons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.change-password-btn {
+    text-decoration: none;
+    color: var(--neutral-dark);
+    font-weight: 700;
+    padding: 8px 15px;
+    border: 2px solid var(--neutral-dark);
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+.change-password-btn i {
+    margin-right: 8px;
+}
+.change-password-btn:hover {
+    background-color: var(--neutral-dark);
+    color: var(--white);
+}
+
+/* --- Main Content Area --- */
+.mobile-menu-btn {
+    display: none;
+}
+.main-content {
+    /* margin-left: 250px; */
+    width: calc(100% - 250px);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+.top-header {
+    background-color: var(--white);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    flex-shrink: 0;
+}
+.welcome-message {
+    font-size: 1.1rem;
+    color:green;
+    font-weight: 700;
+}
+.logout-btn {
+   
+    /* margin-left: 80%; */
+    text-decoration: none;
+    color:white;
+    font-weight: 700;
+    padding: 8px 15px;
+    border: 2px solid red;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    background:orange;
+    
+}
+.logout-btn:hover {
+    background-color: var(--neutral-dark);
+    border-color: black;
+}
+.content-area {
+    padding: 30px;
+    flex-grow: 1;
+    overflow-y: auto;
+    display: flex; /* ADD THIS */
+    flex-direction: column; /* ADD THIS */
+}
+
+/* -------------------------------------------------------------------------- */
+/* 3. DASHBOARD PAGE
+/* -------------------------------------------------------------------------- */
+.dashboard-container h1 {
+    font-family: var(--font-heading);
+    margin-bottom: 10px;
+    margin-top:80px;
+}
+.dashboard-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-top: 30px;
+}
+.stat-card {
+    background-color: var(--white);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    display: flex;
+    align-items: center;
+}
+.stat-card i {
+    font-size: 40px;
+    color: var(--primary-blue-teal);
+    margin-right: 20px;
+}
+.stat-card h2 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    margin: 0;
+}
+.stat-card p {
+    margin: 0;
+    color: #666;
+    font-weight: 700;
+}
+
+/* -------------------------------------------------------------------------- */
+/* 4. MANAGEMENT PAGES (Tables, Forms, etc.)
+/* -------------------------------------------------------------------------- */
+.page-container {
+    margin-top:40px;
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    flex-grow: 1; /* ADD THIS */
+}
+.page-header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+.page-header h1 {
+    font-family: var(--font-heading);
+    margin: 0;
+}
+.page-header p {
+    color: #666;
+    margin: 0;
+    flex-grow: 1;
+    padding-left: 20px;
+}
+.btn-add-new {
+    background-color: var(--primary-blue-teal);
+    color: var(--white) !important;
+    padding: 10px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+.btn-add-new i {
+    margin-right: 8px;
+}
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y:auto
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+table th, table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+table th {
+    background-color: var(--neutral-light);
+}
+table tbody tr:hover {
+    background-color: #f9f9f9;
+}
+.table-thumb {
+    width: 80px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+.actions a.btn-action {
+    display: inline-block;
+    margin: 0 4px;
+    color: #555;
+    font-size: 1.1rem;
+}
+.btn-action.btn-view:hover { color: #007bff; }
+.btn-action.btn-confirm:hover { color: #28a745; }
+.btn-action.btn-delete:hover { color: #dc3545; }
+.btn-action.btn-mark-unread:hover { color: #ffc107; }
+
+/* --- Add/Edit Form Styles --- */
+.form-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+.form-container .form-group {
+    margin-bottom: 25px;
+}
+.form-container .btn-add-new {
+    position: static;
+    display: inline-block;
+    cursor: pointer;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+}
+.current-image-preview {
+    margin-top: 15px;
+}
+.current-image-preview p {
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+.current-image-preview img {
+    max-width: 200px;
+    border: 3px solid var(--border-color);
+    border-radius: 5px;
+}
+.form-container small {
+    display: block;
+    color: #777;
+    margin-top: 8px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* 5. STATUSES
+/* -------------------------------------------------------------------------- */
+tr.unread-message {
+    font-weight: 700;
+    background-color: #fdf5e6;
+}
+.status-badge {
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: var(--white);
+}
+.status-badge.status-pending { background-color: #ffc107; }
+.status-badge.status-confirmed { background-color: #28a745; }
+.status-badge.status-completed { background-color: #17a2b8; }
+.status-badge.status-cancelled { background-color: #dc3545; }
+
+/* -------------------------------------------------------------------------- */
+/* 6. GALLERY MANAGEMENT PAGE
+/* -------------------------------------------------------------------------- */
+.gallery-management-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+.gallery-manage-card {
+    background-color: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+}
+.gallery-manage-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+.gallery-manage-card .card-info {
+    padding: 15px;
+    font-size: 0.9rem;
+}
+.gallery-manage-card .card-info p {
+    margin: 0 0 8px 0;
+    color: #555;
+}
+.gallery-manage-card .card-actions {
+    padding: 10px 15px;
+    background-color: var(--neutral-light);
+    text-align: right;
+    border-top: 1px solid var(--border-color);
+}
+.btn-action-text {
+    text-decoration: none;
+    font-weight: 700;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+.btn-action-text.btn-edit { color: #007bff; }
+.btn-action-text.btn-delete { color: #dc3545; }
+/* --- Header Buttons --- */
+.header-buttons {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Space between the buttons */
+}
+.change-password-btn {
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+    padding: 8px 15px;
+    border: 2px solid var(--neutral-dark);
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    white-space: nowrap; /* Prevents button from wrapping on smaller screens */
+}
+.change-password-btn i {
+    margin-right: 8px;
+}
+.change-password-btn:hover {
+    background-color: var(--neutral-dark);
+    color: var(--white);
+}
+/* -------------------------------------------------------------------------- */
+/* 7. VIEW DETAILS PAGES (Appointment, Message)
+/* -------------------------------------------------------------------------- */
+.details-container {
+    max-width: 900px;
+    margin: 0 auto;
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+.detail-section {
+    margin-bottom: 40px;
+}
+.detail-section h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--neutral-light);
+}
+.detail-section p {
+    margin: 0 0 10px 0;
+}
+.detail-section a {
+    color: var(--primary-blue-teal);
+    text-decoration: none;
+}
+.detail-section a:hover {
+    text-decoration: underline;
+}
+.message-box {
+    background-color: var(--neutral-light);
+    border-left: 4px solid var(--primary-blue-teal);
+    padding: 20px;
+    border-radius: 5px;
+}
+.message-box p {
+    margin: 0;
+    white-space: pre-wrap; /* Preserves line breaks from the textarea */
+}

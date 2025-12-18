@@ -1,0 +1,232 @@
+/* ==========================================================================
+   Sefadl Hospital - Responsive Stylesheet (Final Version)
+   ========================================================================== */
+
+/* 
+ * For Tablets and smaller devices (screens smaller than 992px)
+ * -------------------------------------------------------------
+ */
+@media (max-width: 992px) {
+
+    .container {
+        width: 95%;
+    }
+
+    /* --- Navigation Adjustments --- */
+    .main-header .container {
+        flex-wrap: wrap; 
+    }
+    .main-header .btn-primary {
+        order: 3; 
+        margin: 10px auto 0;
+    }
+    .main-nav {
+        display: none;
+        order: 4;
+        width: 100%;
+    }
+
+    /* --- Perfectly Aligned Hamburger Icon Styles --- */
+    .mobile-nav-toggle {
+        display: block;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+        z-index: 101;
+        order: 2;
+    }
+    .hamburger {
+        display: block;
+        position: relative;
+        width: 28px;
+        height: 3px;
+        background: var(--neutral-dark);
+        border-radius: 2px;
+        transition: all 0.25s ease-in-out;
+    }
+    .hamburger::before,
+    .hamburger::after {
+        content: '';
+        position: absolute;
+        width: 28px;
+        height: 3px;
+        background: var(--neutral-dark);
+        border-radius: 2px;
+        left: 0; /* Ensures perfect horizontal alignment */
+        transition: all 0.25s ease-in-out;
+    }
+    .hamburger::before {
+        transform: translateY(-8px);
+    }
+    .hamburger::after {
+        transform: translateY(8px);
+    }
+
+    /* --- Mobile Navigation Active State --- */
+    .main-nav.nav-active {
+        display: flex;
+        flex-direction: column;
+        margin-top: 15px;
+    }
+    .main-nav.nav-active .nav-links {
+        flex-direction: column;
+        width: 100%;
+    }
+    .main-nav.nav-active .nav-links li {
+        margin: 0;
+        text-align: center;
+        border-bottom: 1px solid #f0f0f0;
+    }
+    .main-nav.nav-active .nav-links a {
+        display: block;
+        padding: 15px 0;
+    }
+    .mobile-nav-toggle.is-active .hamburger {
+        background: transparent;
+    }
+    .mobile-nav-toggle.is-active .hamburger::before {
+        transform: translateY(0) rotate(45deg);
+    }
+    .mobile-nav-toggle.is-active .hamburger::after {
+        transform: translateY(0) rotate(-45deg);
+    }
+
+    /* --- Responsive Grid & Flex Stacking --- */
+    .flex-container {
+        flex-direction: column;
+    }
+    .services-grid-fullpage,
+    .doctors-grid,
+    .news-grid,
+    .news-grid-home,
+    .features-grid-about,
+    .about-grid, /* <-- ADDED FOR ABOUT PAGE */
+    .mission-vision-grid { /* <-- ADDED FOR ABOUT PAGE */
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .gallery-grid,
+    .gallery-grid-home {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        margin:80px;
+    }
+}
+
+/* 
+ * For Mobile Phones (screens smaller than 768px)
+ * -------------------------------------------------------------
+ */
+@media (max-width: 768px) {
+    /* --- Refinement for Page Banner on Mobile --- */
+    .page-banner {
+        padding: 40px 0; /* Reduce the vertical padding */
+        min-height: 200px; /* Give it a fixed minimum height */
+        display: flex; /* Use flexbox to easily center content */
+        align-items: center;
+        justify-content: center;
+    }
+    .page-banner h1 {
+        font-size: 2rem; /* Make the title slightly smaller */
+    }
+    
+    /* --- Typography Adjustments --- */
+    .hero-section h1, .page-banner h1, .article-header h1 {
+        font-size: 2.2rem;
+    }
+    .section-title h2 {
+        font-size: 1.8rem;
+    }
+    .hero-content{
+        margin-bottom:-20px;
+    }
+
+    /* --- Layout Adjustments --- */
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        margin-top:0px;
+    }
+    .hero-buttons .btn {
+        margin: 8px 0;
+        width: 80%;
+    }
+    .main-header .btn-primary {
+       width: 100%;
+       text-align: center;
+    }
+    
+    /* --- Grid & Flex Stacking for Mobile --- */
+    .services-grid-fullpage,
+    .doctors-grid,
+    .news-grid,
+    .news-grid-home,
+    .features-grid-about,
+    .profile-layout,
+    .contact-layout-grid,
+    .detail-simple-layout,
+    .about-grid, /* <-- ADDED FOR ABOUT PAGE STACKING */
+    .mission-vision-grid { /* <-- ADDED FOR ABOUT PAGE STACKING */
+        grid-template-columns: 1fr;
+    }
+    .gallery-grid,
+    .gallery-grid-home {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .footer-grid {
+        grid-template-columns: 1fr;
+        margin:10px;
+    }
+    .map-container {
+        min-height: 350px;
+        margin-top: 40px;
+    }
+    
+    /* --- NEW: Specific Refinements for About Page on Mobile --- */
+    .about-image-container img {
+        max-height: 250px; /* Prevents image from being overly tall */
+        object-fit: cover; /* Ensures image covers area nicely */
+        width: 100%; /* Spans the full width of the new single column */
+    }
+    .about-content-container h2 {
+        font-size: 2rem; /* A slight, readable reduction for mobile */
+    }
+
+.footer-column.h4 {
+    margin-left:60px;
+    align-items: center;
+
+}
+.footer-column
+{
+    align-items:center;
+    text-align: center;
+}
+.social-media-links {
+    width:40%;
+    /* margin-left:35px; */
+    align-items: center;
+    margin:10px auto;
+    
+
+}
+.footer-column.about-column {
+    display :none;
+}
+.container h1{
+    font-size:28px;
+    margin-top:-20px;
+
+}
+.container .par {
+    display:none;
+}
+.hero-buttons .btn-primary {
+    margin-top:40px;
+}
+.hero-buttons .btn-secondary {
+    display:none;
+}
+}

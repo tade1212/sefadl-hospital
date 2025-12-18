@@ -1,0 +1,156 @@
+/* ==========================================================================
+   Admin Panel - Responsive Stylesheet (Corrected Hamburger Version)
+   ========================================================================== */
+
+/* 
+ * For Tablets and Mobile Phones (screens smaller than 992px)
+ * -------------------------------------------------------------
+ */
+@media (max-width: 992px) {
+    
+    /* --- Main Layout: Hide Sidebar by Default --- */
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: -260px; /* Start off-screen */
+        height: 100%;
+        z-index: 1000;
+        transition: left 0.3s ease-in-out;
+        box-shadow: 5px 0 15px rgba(0,0,0,0.2);
+    }
+    .sidebar.sidebar-active {
+        left: 0; /* Slide into view */
+    }
+    .main-content {
+        margin-left: 0; /* Main content takes full width */
+        width: 100%;
+    }
+
+    /* --- Hamburger Menu Button --- */
+    .mobile-menu-btn {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 30px;
+        height: 25px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 1001;
+    }
+    .mobile-menu-btn .hamburger-line {
+        width: 30px;
+        height: 3px;
+        background-color: var(--neutral-dark);
+        border-radius: 10px;
+        transition: all 0.3s linear;
+    }
+    .mobile-menu-btn.is-active .hamburger-line:nth-child(1) {
+        transform: translateY(11px) rotate(45deg);
+    }
+    .mobile-menu-btn.is-active .hamburger-line:nth-child(2) {
+        opacity: 0;
+    }
+    .mobile-menu-btn.is-active .hamburger-line:nth-child(3) {
+        transform: translateY(-11px) rotate(-45deg);
+    }
+
+    /* --- Dashboard Tablet Adjustments --- */
+    .dashboard-stats {
+        grid-template-columns: repeat(2, 1fr); /* 2x2 grid */
+    }
+
+    /* --- Overlay for Mobile Menu --- */
+    .page-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    }
+    .page-overlay.is-active {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+
+/* 
+ * For Mobile Phones ONLY (screens smaller than 768px)
+ * -------------------------------------------------------------
+ */
+@media (max-width: 768px) {
+    
+    .top-header {
+    padding: 15px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* background-color: #333;
+    color: #fff; */
+    padding: 10px;
+    }
+    .logout-btn{
+        margin-right:60px !important;
+    }
+
+    .dashboard-stats {
+        grid-template-columns: 1fr; /* Single column stack */
+    }
+  .page-header {
+        position: static; /* This is the key change: overrides 'sticky' */
+        top: auto;
+        /* z-index: auto; */
+        margin-bottom: 20px; /* Adjust margin for a cleaner look */
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: center;
+    }
+    /* Adjustments for Form Pages on Mobile */
+    .page-container  {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .page-container .btn-add-new {
+        position: static;
+        margin-top: 15px;
+        width: 100%;
+        text-align: center;
+    }
+    .form-container {
+        padding: 20px;
+    }
+    
+    /* Login page adjustments */
+    .login-container {
+        padding: 20px;
+    }
+}
+.welcome-message{
+    display:none;
+}
+.gallery-management-grid{
+    display : grid;
+    grid-template-columns:repeat(1,1fr);
+    gap:20px;
+}
+/* Inside @media (max-width: 768px) */
+    .header-buttons {
+        width: 100%;
+        margin-top: 15px;
+        justify-content: space-between;
+    }
+    @media (min-width: 990px)
+    {
+        .header-right{
+    margin-left:80%;
+}
+
+    }
