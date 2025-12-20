@@ -114,6 +114,13 @@
         margin:80px;
     }
 }
+@media screen and (min-width: 600px) and (max-width: 992px)
+{
+.flex-container{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+}
 
 /* 
  * For Mobile Phones (screens smaller than 768px)
@@ -171,9 +178,9 @@
     .mission-vision-grid { /* <-- ADDED FOR ABOUT PAGE STACKING */
         grid-template-columns: 1fr;
     }
-    .gallery-grid,
-    .gallery-grid-home {
-        grid-template-columns: repeat(1, 1fr);
+    .gallery-grid, 
+    .gallery-grid-home, .news-grid-home,.services-grid-fullpage, .doctors-grid, .news-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
     .footer-grid {
         grid-template-columns: 1fr;
@@ -229,4 +236,12 @@
 .hero-buttons .btn-secondary {
     display:none;
 }
+}
+@media (max-width:600px)
+{
+    .gallery-grid,
+    .gallery-grid-home, .news-grid-home, .services-grid-fullpage, .doctors-grid, .news-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
 }

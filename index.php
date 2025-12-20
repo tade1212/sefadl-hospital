@@ -16,7 +16,7 @@ require_once 'includes/db_connect.php';
             <a href="doctors.php" class="btn btn-secondary">Find a Doctor</a>
         </div>
     </div>
-    n
+    
 </section>
 
 <!-- SERVICES SECTION (Flexbox Layout & NOW WITH IMAGES) -->
@@ -29,7 +29,7 @@ require_once 'includes/db_connect.php';
         <div class="flex-container">
             <?php
             // 1. UPDATE THE SQL QUERY to fetch the image_filename
-            $sql_services = "SELECT id, service_name, description, image_filename FROM services ORDER BY service_name ASC LIMIT 3";
+            $sql_services = "SELECT id, service_name, description, image_filename FROM services ORDER BY service_name ASC LIMIT 4";
             $result_services = $conn->query($sql_services);
 
             if ($result_services && $result_services->num_rows > 0) {
@@ -92,7 +92,7 @@ require_once 'includes/db_connect.php';
         </div>
         <div class="flex-container">
             <?php
-            $sql_doctors = "SELECT id, full_name, specialty, photo_filename FROM doctors ORDER BY RAND() LIMIT 3";
+            $sql_doctors = "SELECT id, full_name, specialty, photo_filename FROM doctors ORDER BY RAND() LIMIT 4";
             $result_doctors = $conn->query($sql_doctors);
             if ($result_doctors && $result_doctors->num_rows > 0) {
                 while($row = $result_doctors->fetch_assoc()) {

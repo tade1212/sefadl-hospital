@@ -138,13 +138,26 @@ body {
 /* 4. SECTIONS & BANNERS
 /* -------------------------------------------------------------------------- */
 
-.hero-section,
+
 .page-banner {
     background: url('../images/hpage1.jpg') no-repeat center center/cover;
     text-align: center;
     color: var(--white);
     position: relative;
+
     
+}
+.hero-section{
+    background: url('../images/hpage1.jpg') ;
+    background-repeat:no-repeat;
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+    color: var(--white);
+    position: relative;
+    /* padding-bottom: 270px!important; */
+
+
 }
 
 /* Dark overlay for text readability */
